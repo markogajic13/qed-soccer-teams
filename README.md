@@ -47,5 +47,5 @@
    php artisan make:filament-user
 10. **Run custom command to create teams and players:**
     ```bash
-    
+    php artisan db:seed --class=TeamsAndPlayersSeeder
    
