@@ -36,16 +36,11 @@
 6. **Run Database Migrations:**
    ```bash
    php artisan migrate
-7. **Install the Filament Panel Builder:**
-   (If you got an error after running the following command set filament/filament version in command to "^3.2.75")
-   ```bash
-   composer require filament/filament:"^3.2" -W
-   php artisan filament:install --panels
-9. **Create new admin:**
+7. **Create new admin:**
    First run the following command, then create name, email and password and then go to http://qed-soccer-teams.test/admin/login and login in dashboard with those email and password
    ```bash
    php artisan make:filament-user
-10. **Run custom command to create teams and players:**
+8. **Run custom command to create teams and players:**
     ```bash
     php artisan db:seed --class=TeamsAndPlayersSeeder
    
