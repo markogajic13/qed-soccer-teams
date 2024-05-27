@@ -6,10 +6,16 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "filament/filament": "3.2.75",
+        "blade-ui-kit/blade-icons": "^1.6",
+        "filament/filament": "^3.2",
+        "filament/spatie-laravel-media-library-plugin": "^3.2",
+        "flowframe/laravel-trend": "^0.2.0",
         "intervention/image": "^3.6",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
+        "laravel/telescope": "^5.0",
+        "laravel/tinker": "^2.9",
+        "predis/predis": "^2.0",
+        "spatie/laravel-medialibrary": "^11.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

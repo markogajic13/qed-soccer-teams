@@ -2,18 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TeamResource\Pages;
-use App\Models\Team;
+use App\Filament\Resources\LeagueResource\Pages;
+use App\Models\League;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Filament\Tables\Filters\SelectFilter;
 
-class TeamResource extends Resource
+class LeagueResource extends Resource
 {
-    protected static ?string $model = Team::class;
+    protected static ?string $model = League::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -21,12 +20,8 @@ class TeamResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->label('Team name')->required(),
-                Forms\Components\SpatieMediaLibraryFileUpload::make('avatar')->label('Team Avatar')->avatar()->required(),
-                Forms\Components\Select::make('league_id')
-                    ->label('League')
-                    ->options(Team::all()->pluck('name', 'id'))
-                    ->searchable()
+                Forms\Components\TextInput::make('name')->label('League name')->required(),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('avatar')->label('League Avatar')->avatar()->required(),
             ]);
     }
 
@@ -35,15 +30,13 @@ class TeamResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
+
                 Tables\Columns\SpatieMediaLibraryImageColumn::make('avatar')
                 ->collection('avatars')
                 ->circular(),
-                Tables\Columns\TextColumn::make('league.name')
-                    ->label('League')
-                    ->sortable(),
             ])
             ->filters([
-                SelectFilter::make('league')->relationship('league', 'name')
+                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -65,9 +58,9 @@ class TeamResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTeams::route('/'),
-            'create' => Pages\CreateTeam::route('/create'),
-            'edit' => Pages\EditTeam::route('/{record}/edit'),
+            'index' => Pages\ListLeagues::route('/'),
+            'create' => Pages\CreateLeague::route('/create'),
+            'edit' => Pages\EditLeague::route('/{record}/edit'),
         ];
     }
 }

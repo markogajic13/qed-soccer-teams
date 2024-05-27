@@ -7,16 +7,19 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PlayerFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
+    protected $model = Player::class;
+
+    public function definition() : array
     {
         return [
-            'name' => $this->faker->name,
-            'avatar' => $this->faker->imageUrl(200, 200),
+            'name' => fake()->name(),
+            //'avatar' => fake()->imageUrl(200, 200),
+            'birthday' => fake()->date(),
+            'gender' => fake()->randomElement(['male', 'female']),
+            'email' => fake()->unique()->email(), 
+            'phone' => fake()->phoneNumber(),
+            'performance_score' => fake()->numberBetween(0, 100), 
+            'overall_score' => fake()->numberBetween(0, 100,), 
         ];
     }
 }

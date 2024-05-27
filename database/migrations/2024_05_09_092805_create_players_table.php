@@ -6,24 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    
     public function up(): void
-    {
-        Schema::create('players', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('avatar')->nullable();
-            $table->unsignedBigInteger('team_id'); 
-            $table->foreign('team_id')->references('id')->on('teams');
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
+{
+    Schema::create('players', function (Blueprint $table) {
+        $table->id();
+        $table->string('name');
+        $table->string('avatar')->nullable();
+        $table->date('birthday')->nullable();  
+        $table->enum('gender', ['male', 'female', 'other'])->nullable();  
+        $table->string('email')->unique()->nullable();  
+        $table->string('phone')->nullable();  
+        $table->decimal('performance_score', 5, 2)->nullable();
+        $table->decimal('overall_score', 5, 2)->nullable();    
+        $table->foreignId('team_id')->references('id')->on('teams')->nullable()->constrained();
+        $table->timestamps();
+    });
+}
+    
     public function down(): void
     {
         Schema::dropIfExists('players');
