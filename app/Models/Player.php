@@ -12,17 +12,8 @@ class Player extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
-    
-    protected $guarded = ['name',
-    'avatar',
-    'birthday',
-    'gender',
-    'email',
-    'phone',
-    'performance_score',
-    'overall_score',
-    'team_id',
-    'league_id',];
+
+    protected $guarded = [];
 
     public function team(): BelongsTo
     {

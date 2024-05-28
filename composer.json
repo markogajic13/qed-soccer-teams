@@ -7,11 +7,13 @@
     "require": {
         "php": "^8.2",
         "blade-ui-kit/blade-icons": "^1.6",
+        "dedoc/scramble": "^0.10.11",
         "filament/filament": "^3.2",
         "filament/spatie-laravel-media-library-plugin": "^3.2",
         "flowframe/laravel-trend": "^0.2.0",
         "intervention/image": "^3.6",
         "laravel/framework": "^11.0",
+        "laravel/sanctum": "^4.0",
         "laravel/telescope": "^5.0",
         "laravel/tinker": "^2.9",
         "predis/predis": "^2.0",

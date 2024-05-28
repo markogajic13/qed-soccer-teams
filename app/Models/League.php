@@ -18,4 +18,13 @@ class League extends Model implements HasMedia
     {
         $this->addMediaCollection('avatars')->singleFile();
     }
+
+    public function teams()
+    {
+        return $this->hasMany(Team::class);
+    }
+    public function players()
+    {
+        return $this->hasManyThrough(Player::class, Team::class);
+    }
 }
