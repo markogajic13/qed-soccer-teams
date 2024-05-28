@@ -31,16 +31,19 @@
    Then run next commands in VSC terminal:
    ```bash
    composer install
+   ```bash
    php artisan key:generate
+   ```bash
    php artisan storage:link
 6. **Run Database Migrations:**
    ```bash
    php artisan migrate
 7. **Create new admin:**
-   First run the following command, then create name, email and password and then go to http://qed-soccer-teams.test/admin/login and login in dashboard with those email and password
+   First run the following command, then create name, email and password and then go to http://qed-soccer-teams.test/admin/login and login in dashboard with those email and password.
    ```bash
    php artisan make:filament-user
 8. **Run custom command to create teams and players:**
     ```bash
     php artisan db:seed --class=TeamsAndPlayersSeeder
    
+9. **Laradock setup will be present soon**
