@@ -46,7 +46,7 @@
     ```bash
     php artisan db:seed --class=LTPSeeder
    
-9. **Run queue command to create leagues, teams and players avatars in background**
+9. **Run queue command to create leagues, teams and players avatars in background:**
     Open the new terminal, navigate to laradock folder, execute workspace bash, navigate to project and run the command:
     ```bash
     php artisan queue:work
