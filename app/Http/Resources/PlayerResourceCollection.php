@@ -19,7 +19,7 @@ class PlayerResourceCollection extends ResourceCollection
                 return new PlayerResource($player);
             }),
             'links' => [
-                'self' => url('/api/teams'), 
+                'self' => url('/api/players'), 
             ],
         ];
     }

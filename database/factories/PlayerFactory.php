@@ -20,6 +20,8 @@ class PlayerFactory extends Factory
             'phone' => fake()->phoneNumber(),
             'performance_score' => fake()->numberBetween(0, 100), 
             'overall_score' => fake()->numberBetween(0, 100,), 
+            'created_at'=> fake()->dateTime(),
+            'updated_at'=> fake()->dateTime(),
         ];
     }
 }

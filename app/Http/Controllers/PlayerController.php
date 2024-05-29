@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PlayerResourceCollection;
+use App\Http\Resources\PlayerResource;
 use App\Http\Resources\TeamResourceCollection;
 use App\Models\League;
 use App\Models\Player;
@@ -17,19 +17,19 @@ class PlayerController extends Controller
     public function index(Request $request)
     {
         $players = Player::paginate(10); 
-        return new PlayerResourceCollection($players);
+        return PlayerResource::collection($players);
     }
 
     public function getPlayersByTeam(Team $team)
     {
         $players = $team->players()->paginate(10);
-        return new TeamResourceCollection($players);
+        return PlayerResource::collection($players);
     }
 
     public function getPlayersByLeague(League $league)
     {
         $players = $league->players()->paginate(10);
-        return new PlayerResourceCollection($players);
+        return PlayerResource::collection($players);
     }
 
 

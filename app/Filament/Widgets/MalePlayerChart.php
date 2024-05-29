@@ -2,31 +2,32 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\Player;
 use Filament\Widgets\ChartWidget;
+use App\Models\Player;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 
-class PlayersChart extends ChartWidget
+class MalePlayerChart extends ChartWidget
 {
-    protected static ?string $heading = 'Player average Overall Score Chart';
+    protected static ?string $heading = 'Male Player average Performance Score Chart';
+
     protected static ?string $maxHeight = '300px';
     protected static string $color = 'success';
 
     protected function getData(): array
     {
-        $trend = Trend::query(Player::where('email', 'like', '%@gmail.com'))
+        $trend = Trend::query(Player::where('gender', 'male'))
             ->between(
-                start: now()->startOfMonth()->subMonths(2),
-                end: now()->endOfMonth(),
+                start: now()->startOfYear(),
+                end: now()->endOfYear(),
             )
             ->perMonth()
-            ->average('overall_score');
-
+            ->average('performance_score');
+            
         return [
             'datasets' => [
                 [
-                    'label' => 'Average Overall Score',
+                    'label' => 'Average Performance Score',
                     'data' => $trend->map(fn(TrendValue $value) => $value->aggregate),
                 ],
             ],
@@ -39,4 +40,3 @@ class PlayersChart extends ChartWidget
         return 'line';
     }
 }
-
